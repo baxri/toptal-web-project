@@ -4,7 +4,7 @@ import { persistState } from "@storeon/localstorage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-import firebase from "./FirebaseConfig";
+// import firebase from "./FirebaseConfig";
 
 import Shared from "./shared";
 
