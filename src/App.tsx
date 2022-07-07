@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 
 // import firebase from "./FirebaseConfig";
 
+import { AuthProvider } from "./hooks/useAuthentication";
+
 import Shared from "./shared";
 
 import PrivateRoute from "./routes/PivateRoute";
@@ -30,16 +32,18 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <StoreContext.Provider value={store}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/login" element={<LoginScreen />} />
-            <Route path="/" element={<PrivateRoute />}>
-              <Route path="/dashboard" element={<DashboardScreen />} />
-              <Route path="/transactions" element={<TransactionsScreen />} />
-            </Route>
-            <Route path="*" element={<Screen404 />} />
-          </Routes>
-        </BrowserRouter>
+        <AuthProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/login" element={<LoginScreen />} />
+              <Route path="/" element={<PrivateRoute />}>
+                <Route path="/dashboard" element={<DashboardScreen />} />
+                <Route path="/transactions" element={<TransactionsScreen />} />
+              </Route>
+              <Route path="*" element={<Screen404 />} />
+            </Routes>
+          </BrowserRouter>
+        </AuthProvider>
       </StoreContext.Provider>
     </QueryClientProvider>
   );

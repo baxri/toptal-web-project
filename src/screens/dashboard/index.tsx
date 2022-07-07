@@ -1,10 +1,11 @@
-import { useSession } from "../../storeon/session";
+// import { useSession } from "../../storeon/session";
+import { useAuthentication } from "../../hooks/useAuthentication";
 
 function DashboardScreen() {
-  const session = useSession();
+  const { onLogOut } = useAuthentication();
 
   const handleLogout = () => {
-    session.clear();
+    onLogOut();
   };
 
   return (
