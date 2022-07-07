@@ -1,10 +1,10 @@
 import { Navigate } from "react-router-dom";
 
-import { useSession } from "../../storeon/session";
+// import { useSession } from "../../storeon/session";
 import { useAuthentication } from "../../hooks/useAuthentication";
 
 function LoginScreen() {
-  const session = useSession();
+  // const session = useSession();
   const { isAuthenticated, onLogin } = useAuthentication();
 
   if (isAuthenticated) {
